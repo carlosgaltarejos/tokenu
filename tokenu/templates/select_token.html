@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Token</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Select Token to View</h2>
+    <form action="{% url 'view-token' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="token_address">Select Token</label>
+            <select class="form-control" id="token_address" name="token_address" required>
+                {% for token in tokens %}
+                    <option value="{{ token.token_address }}">
+                        {{ token.blockchain }} - {{ token.file_name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="encryption_key">Encryption Key</label>
+            <input type="text" class="form-control" id="encryption_key" name="encryption_key" required>
+        </div>
+        <button type="submit" class="btn btn-primary">View File</button>
+    </form>
+</div>
+</body>
+</html>

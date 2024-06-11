@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Tokens</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>View Tokenized Files</h2>
+    <form action="{% url 'show-wallet' %}" method="get">
+        <div class="form-group">
+            <label for="wallet_address">Wallet Address</label>
+            <input type="text" class="form-control" id="wallet_address" name="wallet_address" required>
+        </div>
+        <button type="submit" class="btn btn-primary">View Tokens</button>
+    </form>
+</div>
+</body>
+</html>
