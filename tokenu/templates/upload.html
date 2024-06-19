@@ -3,35 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Upload File</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container mt-5">
-    <h2>Upload File to Tokenize</h2>
-    <form action="{% url 'tokenize-file' %}" method="post" enctype="multipart/form-data">
+    <h1>Upload File to Tokenize</h1>
+    <form id="uploadForm" action="/tokenize/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="file">Choose file</label>
-            <input type="file" class="form-control" id="file" name="file" required>
-        </div>
-        <div class="form-group">
-            <label for="blockchain">Choose blockchain</label>
-            <select class="form-control" id="blockchain" name="blockchain" required>
-                <option value="ethereum">Ethereum</option>
-                <option value="solana">Solana</option>
-                <option value="polygon">Polygon</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="encryption_key">Encryption Key</label>
-            <input type="text" class="form-control" id="encryption_key" name="encryption_key" required>
-        </div>
-        <div class="form-group">
-            <label for="wallet_address">Wallet Address</label>
-            <input type="text" class="form-control" id="wallet_address" name="wallet_address" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Upload and Tokenize</button>
+        <label for="file">Choose a file:</label>
+        <input type="file" id="file" name="file" required><br><br>
+
+        <label for="blockchain">Select Blockchain:</label>
+        <select id="blockchain" name="blockchain" required>
+            <option value="ethereum">Ethereum</option>
+            <option value="solana">Solana</option>
+            <option value="polygon">Polygon</option>
+        </select><br><br>
+
+        <label for="wallet_address">Wallet Address:</label>
+        <input type="text" id="wallet_address" name="wallet_address" required><br><br>
+
+        <label for="contract_address">Contract Address:</label>
+        <input type="text" id="contract_address" name="contract_address" required><br><br>
+
+        <label for="encryption_key">Encryption Key:</label>
+        <input type="text" id="encryption_key" name="encryption_key" required><br><br>
+
+        <button type="submit">Upload and Tokenize</button>
     </form>
-</div>
 </body>
 </html>
